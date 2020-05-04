@@ -26,7 +26,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         let configuration = ARImageTrackingConfiguration()
         
-        if let trackedImages = ARReferenceImage.referenceImages(inGroupNamed: "String", bundle: Bundle.main){
+        if let trackedImages = ARReferenceImage.referenceImages(inGroupNamed: "My Bros", bundle: Bundle.main){
             configuration.trackingImages = trackedImages
             configuration.maximumNumberOfTrackedImages = 2
         }
@@ -48,21 +48,28 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
             let size = imageAnchor.referenceImage.physicalSize
             
-            var video = SKVideoNode()
+            var videoNode = SKVideoNode()
             //Add video files plus images.
-//            switch imageAnchor.name{
-//            case " ":
-//                videoNode = SKVideoNode(fileNamed: " ")
-//            case " ":
-//                videoNode = SKVideoNode(fileNamed: " ")
-//            default:
-//                break
-//            }
+            switch imageAnchor.name{
+            case "appleMouse":
+                videoNode = SKVideoNode(fileNamed: "Run.mp4")
+            case "businessBard":
+                videoNode = SKVideoNode(fileNamed: "MC.mov")
+            default:
+                break
+            }
+            
+            videoNode.play()
+            
+            let videoScene = SKScene(size: CGSize(width: 640, height: 360))
+            videoScene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+            videoScene.addChild(videoNode)
             
             let plane = SCNPlane(width: size.width, height: size.height)
-            plane.firstMaterial?.diffuse.contents = UIColor.white.withAlphaComponent(0.6)
+            plane.firstMaterial?.diffuse.contents = videoScene
             let planeNode = SCNNode(geometry: plane)
             plane.firstMaterial?.isDoubleSided = true
+            planeNode.eulerAngles.x = .pi / 2
             
             node.addChildNode(planeNode)
             return node
@@ -70,4 +77,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         return nil
     }
+    
+
 }
