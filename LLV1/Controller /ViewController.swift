@@ -9,6 +9,8 @@
 import UIKit
 import SceneKit
 import ARKit
+import AVFoundation
+import AVKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
@@ -22,8 +24,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-
+        NotificationCenter.default.addObserver(self, selector: #selector(renderer(_:nodeFor:)), name: .AVPlayerItemDidPlayToEndTime, object: nil)
         let configuration = ARImageTrackingConfiguration()
         
         if let trackedImages = ARReferenceImage.referenceImages(inGroupNamed: "My Bros", bundle: Bundle.main){
@@ -38,45 +39,36 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.viewWillDisappear(animated)
         
         // Pause the view's session
-        sceneView.session.pause()
+        //sceneView.session.pause()
+    }
+    
+    @objc func playVideo(){
+        guard let videoLink = URL(string: "https://firebasestorage.googleapis.com/v0/b/llv1-d7b95.appspot.com/o/MC.mov?alt=media&token=18c80ecf-ad54-467f-a0bd-4c00e8dd00bb") else {
+            return
+        }
+        DispatchQueue.main.async {
+            let player = AVPlayer(url: videoLink)
+            let controller = AVPlayerViewController()
+            controller.player = player
+            self.present(controller, animated: true){
+                player.play()
+            }
+        }
     }
 
+    
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-        
+
         if let imageAnchor = anchor as? ARImageAnchor{
-        
-            let size = imageAnchor.referenceImage.physicalSize
-            
-            var videoNode = SKVideoNode()
-            //Add video files plus images.
             switch imageAnchor.name{
-            case "appleMouse":
-                videoNode = SKVideoNode(fileNamed: "Run.mp4")
             case "businessBard":
-                videoNode = SKVideoNode(fileNamed: "MC.mov")
+                playVideo()
+                //videoNode = SKVideoNode(fileNamed: "MC.mov")
             default:
                 break
             }
-            
-            videoNode.play()
-            
-            let videoScene = SKScene(size: CGSize(width: 640, height: 360))
-            videoScene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-            videoScene.addChild(videoNode)
-            
-            let plane = SCNPlane(width: size.width, height: size.height)
-            plane.firstMaterial?.diffuse.contents = videoScene
-            let planeNode = SCNNode(geometry: plane)
-            plane.firstMaterial?.isDoubleSided = true
-            planeNode.eulerAngles.x = .pi / 2
-            
-            node.addChildNode(planeNode)
-            return node
         }
-        
         return nil
     }
     
-
 }
