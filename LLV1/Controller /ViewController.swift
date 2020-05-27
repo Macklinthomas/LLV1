@@ -16,15 +16,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.delegate = self
+
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(renderer(_:nodeFor:)), name: .AVPlayerItemDidPlayToEndTime, object: nil)
         let configuration = ARImageTrackingConfiguration()
         
         if let trackedImages = ARReferenceImage.referenceImages(inGroupNamed: "My Bros", bundle: Bundle.main){
@@ -48,27 +50,32 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         DispatchQueue.main.async {
             let player = AVPlayer(url: videoLink)
+            let videoNode = SKVideoNode(avPlayer: player)
             let controller = AVPlayerViewController()
             controller.player = player
             self.present(controller, animated: true){
-                player.play()
+                videoNode.play()
             }
         }
+        
     }
-
     
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-
-        if let imageAnchor = anchor as? ARImageAnchor{
-            switch imageAnchor.name{
-            case "businessBard":
-                playVideo()
-                //videoNode = SKVideoNode(fileNamed: "MC.mov")
-            default:
-                break
-            }
-        }
-        return nil
+    @objc func callMain(){
+        DispatchQueue.main.async {
+        let mainTabController = self.storyboard?.instantiateViewController(withIdentifier: "mainTabController") as! mainTabController
+        self.present(mainTabController, animated: true, completion: nil)
     }
+    }
+    
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        guard let imageAnchor = (anchor as? ARImageAnchor)else{return}
+        if imageAnchor.isTracked{
+            playVideo()
+
+        }
+    }
+ 
+
     
 }

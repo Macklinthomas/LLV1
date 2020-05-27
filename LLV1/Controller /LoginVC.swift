@@ -45,9 +45,8 @@ class LoginVC: UIViewController {
             self.activityIndicator.stopAnimating()
             print("Login was Successful!")
             
-            let main = UIStoryboard(name: "Main", bundle: nil)
-            let openARVC = main.instantiateViewController(identifier: "ARVC")
-            self.present(openARVC, animated: true, completion: nil)
+            let mainTabController = self.storyboard?.instantiateViewController(withIdentifier: "mainTabController") as! mainTabController
+            self.present(mainTabController, animated: true, completion: nil)
         }
     }
     
