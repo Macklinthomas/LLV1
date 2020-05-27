@@ -44,8 +44,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //sceneView.session.pause()
     }
     
-    @objc func playVideo(){
-        guard let videoLink = URL(string: "https://firebasestorage.googleapis.com/v0/b/llv1-d7b95.appspot.com/o/MC.mov?alt=media&token=18c80ecf-ad54-467f-a0bd-4c00e8dd00bb") else {
+    @objc func playVideo(anchorName: String?){
+        var url : String = ""
+        switch anchorName{
+        case "businessBard":
+            url = "https://firebasestorage.googleapis.com/v0/b/llv1-d7b95.appspot.com/o/MC.mov?alt=media&token=18c80ecf-ad54-467f-a0bd-4c00e8dd00bb"
+            break
+        case "appleMouse":
+            url = "https://firebasestorage.googleapis.com/v0/b/llv1-d7b95.appspot.com/o/Run.mp4?alt=media&token=4e07fe65-6595-47a2-bda4-04554363d593"
+            break
+        default: break
+        }
+        guard let videoLink = URL(string: url) else {
             return
         }
         DispatchQueue.main.async {
@@ -71,7 +81,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let imageAnchor = (anchor as? ARImageAnchor)else{return}
         if imageAnchor.isTracked{
-            playVideo()
+            
+            playVideo(anchorName: imageAnchor.name)
 
         }
     }
