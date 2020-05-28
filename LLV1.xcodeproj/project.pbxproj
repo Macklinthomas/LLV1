@@ -13,6 +13,9 @@
 		010C62F52448F376009ECC0A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C62F42448F376009ECC0A /* LoginVC.swift */; };
 		010C62F72448F388009ECC0A /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C62F62448F388009ECC0A /* RegisterVC.swift */; };
 		010C62FB2448FAE2009ECC0A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C62FA2448FAE2009ECC0A /* Extensions.swift */; };
+		01B19696247F1F2E00E10574 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B19695247F1F2E00E10574 /* Video.swift */; };
+		01B19698247F24F400E10574 /* VideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B19697247F24F400E10574 /* VideoTableViewController.swift */; };
+		01B1969A247F3E6C00E10574 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B19699247F3E6C00E10574 /* VideoTableViewCell.swift */; };
 		01B93E7824478E21000C55B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B93E7724478E21000C55B5 /* AppDelegate.swift */; };
 		01B93E7A24478E21000C55B5 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 01B93E7924478E21000C55B5 /* art.scnassets */; };
 		01B93E7C24478E21000C55B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B93E7B24478E21000C55B5 /* ViewController.swift */; };
@@ -32,6 +35,9 @@
 		010C62F42448F376009ECC0A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		010C62F62448F388009ECC0A /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		010C62FA2448FAE2009ECC0A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		01B19695247F1F2E00E10574 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		01B19697247F24F400E10574 /* VideoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewController.swift; sourceTree = "<group>"; };
+		01B19699247F3E6C00E10574 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		01B93E7424478E21000C55B5 /* LLV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LLV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01B93E7724478E21000C55B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01B93E7924478E21000C55B5 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -126,6 +132,9 @@
 		01B93E6B24478E21000C55B5 = {
 			isa = PBXGroup;
 			children = (
+				01B19699247F3E6C00E10574 /* VideoTableViewCell.swift */,
+				01B19697247F24F400E10574 /* VideoTableViewController.swift */,
+				01B19695247F1F2E00E10574 /* Video.swift */,
 				01B93E7624478E21000C55B5 /* LLV1 */,
 				01B93E7524478E21000C55B5 /* Products */,
 				162DACE5B455FD4F041E26ED /* Pods */,
@@ -304,9 +313,12 @@
 				010C62FB2448FAE2009ECC0A /* Extensions.swift in Sources */,
 				01B93E7C24478E21000C55B5 /* ViewController.swift in Sources */,
 				01C0FF222467EA4C008829DF /* mainTabController.swift in Sources */,
+				01B1969A247F3E6C00E10574 /* VideoTableViewCell.swift in Sources */,
 				010C62F72448F388009ECC0A /* RegisterVC.swift in Sources */,
+				01B19696247F1F2E00E10574 /* Video.swift in Sources */,
 				01B93E7824478E21000C55B5 /* AppDelegate.swift in Sources */,
 				01BEC586244A7C2C007FB7F9 /* RoundedViews.swift in Sources */,
+				01B19698247F24F400E10574 /* VideoTableViewController.swift in Sources */,
 				010C62F52448F376009ECC0A /* LoginVC.swift in Sources */,
 				01BEC583244A78D7007FB7F9 /* Constants.swift in Sources */,
 			);
