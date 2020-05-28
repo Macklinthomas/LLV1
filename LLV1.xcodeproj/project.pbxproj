@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		010C62E92448EF84009ECC0A /* MC.mov in Resources */ = {isa = PBXBuildFile; fileRef = 010C62E72448EF82009ECC0A /* MC.mov */; };
-		010C62EA2448EF84009ECC0A /* Run.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 010C62E82448EF84009ECC0A /* Run.mp4 */; };
 		010C62EF2448F070009ECC0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 010C62EE2448F070009ECC0A /* Assets.xcassets */; };
 		010C62F52448F376009ECC0A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C62F42448F376009ECC0A /* LoginVC.swift */; };
 		010C62F72448F388009ECC0A /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C62F62448F388009ECC0A /* RegisterVC.swift */; };
@@ -29,8 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		010C62E72448EF82009ECC0A /* MC.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = MC.mov; sourceTree = "<group>"; };
-		010C62E82448EF84009ECC0A /* Run.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Run.mp4; sourceTree = "<group>"; };
 		010C62EE2448F070009ECC0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		010C62F42448F376009ECC0A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		010C62F62448F388009ECC0A /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -66,15 +62,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		010C62E62448EF60009ECC0A /* Video Clips */ = {
-			isa = PBXGroup;
-			children = (
-				010C62E72448EF82009ECC0A /* MC.mov */,
-				010C62E82448EF84009ECC0A /* Run.mp4 */,
-			);
-			path = "Video Clips";
-			sourceTree = "<group>";
-		};
 		010C62F02448F2F1009ECC0A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,7 +145,6 @@
 				010C62F22448F30E009ECC0A /* View */,
 				010C62F12448F305009ECC0A /* Controller  */,
 				010C62F02448F2F1009ECC0A /* Storyboards */,
-				010C62E62448EF60009ECC0A /* Video Clips */,
 				01B93E7924478E21000C55B5 /* art.scnassets */,
 				01B93E8B24479B50000C55B5 /* GoogleService-Info.plist */,
 				01B93E8524478E23000C55B5 /* Info.plist */,
@@ -251,9 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				010C62E92448EF84009ECC0A /* MC.mov in Resources */,
 				01B93E7A24478E21000C55B5 /* art.scnassets in Resources */,
-				010C62EA2448EF84009ECC0A /* Run.mp4 in Resources */,
 				01B93E8424478E23000C55B5 /* LaunchScreen.storyboard in Resources */,
 				010C62EF2448F070009ECC0A /* Assets.xcassets in Resources */,
 				01B93E8C24479B51000C55B5 /* GoogleService-Info.plist in Resources */,

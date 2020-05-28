@@ -12,6 +12,7 @@ class VideoTableViewCell: UITableViewCell
 {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var playThumbnailImageView: UIImageView!
     
     var video: Video!{
         didSet{
@@ -24,5 +25,6 @@ class VideoTableViewCell: UITableViewCell
         thumbnailImageView.layer.cornerRadius = 8.0
         thumbnailImageView.layer.masksToBounds = true
         usernameLabel.text = video.authorName
+        playThumbnailImageView.image = UIImage(named: "playbutton")
     }
 }
