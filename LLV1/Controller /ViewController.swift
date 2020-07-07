@@ -11,24 +11,26 @@ import SceneKit
 import ARKit
 import AVFoundation
 import AVKit
+import GoogleMobileAds
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    //var interstitial: GADInterstitial!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.delegate = self
-
+        //interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let configuration = ARImageTrackingConfiguration()
-        
+
         if let trackedImages = ARReferenceImage.referenceImages(inGroupNamed: "My Bros", bundle: Bundle.main){
             configuration.trackingImages = trackedImages
             configuration.maximumNumberOfTrackedImages = 2
@@ -48,10 +50,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         var url : String = ""
         switch anchorName{
         case "businessBard":
-            url = "https://firebasestorage.googleapis.com/v0/b/llv1-d7b95.appspot.com/o/MC.mov?alt=media&token=18c80ecf-ad54-467f-a0bd-4c00e8dd00bb"
+            url = "https://firebasestorage.googleapis.com/v0/b/llv1-d7b95.appspot.com/o/IMG_4426.mov?alt=media&token=6b343acf-8300-4718-949b-bdbe1e4d92c1"
             break
         case "appleMouse":
-            url = "https://firebasestorage.googleapis.com/v0/b/llv1-d7b95.appspot.com/o/Run.mp4?alt=media&token=4e07fe65-6595-47a2-bda4-04554363d593"
+            url = "https://firebasestorage.googleapis.com/v0/b/llv1-d7b95.appspot.com/o/MC.mov?alt=media&token=18c80ecf-ad54-467f-a0bd-4c00e8dd00bb"
+            break
+        case "Funk Shui-Artwork":
+            url = "https://firebasestorage.googleapis.com/v0/b/llv1-d7b95.appspot.com/o/IMG_4426.mov?alt=media&token=6b343acf-8300-4718-949b-bdbe1e4d92c1"
             break
         default: break
         }
@@ -59,6 +64,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             return
         }
         DispatchQueue.main.async {
+            print("Image found")
             let player = AVPlayer(url: videoLink)
             let videoNode = SKVideoNode(avPlayer: player)
             let controller = AVPlayerViewController()
@@ -86,7 +92,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         }
     }
- 
+    
 
     
 }

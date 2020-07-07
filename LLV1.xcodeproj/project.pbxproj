@@ -74,6 +74,7 @@
 		010C62F12448F305009ECC0A /* Controller  */ = {
 			isa = PBXGroup;
 			children = (
+				01B19697247F24F400E10574 /* VideoTableViewController.swift */,
 				010C62F42448F376009ECC0A /* LoginVC.swift */,
 				010C62F62448F388009ECC0A /* RegisterVC.swift */,
 				01B93E7724478E21000C55B5 /* AppDelegate.swift */,
@@ -93,6 +94,8 @@
 		010C62F32448F315009ECC0A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				01B19695247F1F2E00E10574 /* Video.swift */,
+				01B19699247F3E6C00E10574 /* VideoTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,9 +122,6 @@
 		01B93E6B24478E21000C55B5 = {
 			isa = PBXGroup;
 			children = (
-				01B19699247F3E6C00E10574 /* VideoTableViewCell.swift */,
-				01B19697247F24F400E10574 /* VideoTableViewController.swift */,
-				01B19695247F1F2E00E10574 /* Video.swift */,
 				01B93E7624478E21000C55B5 /* LLV1 */,
 				01B93E7524478E21000C55B5 /* Products */,
 				162DACE5B455FD4F041E26ED /* Pods */,

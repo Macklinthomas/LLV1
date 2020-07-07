@@ -14,6 +14,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loginOutBtn: UIBarButtonItem!
     
 
     override func viewDidLoad() {
@@ -44,11 +45,33 @@ class LoginVC: UIViewController {
             
             self.activityIndicator.stopAnimating()
             print("Login was Successful!")
-            
-            let mainTabController = self.storyboard?.instantiateViewController(withIdentifier: "mainTabController") as! mainTabController
-            self.present(mainTabController, animated: true, completion: nil)
+
+            let homeScreenVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeScreenVC") as! UIViewController
+            homeScreenVC.modalPresentationStyle = .fullScreen
+            self.present(homeScreenVC, animated: true, completion: nil)
         }
     }
+    
+    
+    @IBAction func loginOutClicked(_ sender: Any) {
+        
+        if let _ = Auth.auth().currentUser{
+                //We are logged in.
+            do {
+                try Auth.auth().signOut()
+                let mainTabController = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                self.present(mainTabController, animated: true, completion: nil)
+            } catch {
+                debugPrint(error.localizedDescription)
+            }
+        } else {
+            let mainTabController = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            self.present(mainTabController, animated: true, completion: nil)
+        }
+        
+    }
+    
+    
     
    
 }

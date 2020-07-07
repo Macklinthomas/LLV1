@@ -23,6 +23,7 @@ target 'LLV1' do
     shared_pods
     #pod 'Stripe'
     #pod 'Alamofire'
+    pod 'Google-Mobile-Ads-SDK'	
 
 
 end
